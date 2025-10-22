@@ -1,4 +1,5 @@
-import { Navbar, NavbarLink } from "flowbite-react";
+import { Navbar } from "flowbite-react";
+import { Link } from "@tanstack/react-router";
 
 export const NavLinks = () => {
   return (
@@ -7,20 +8,18 @@ export const NavLinks = () => {
       rounded
       className="justify-self-center bg-transparent shadow-none absolute left-1/2 -translate-x-1/2 "
     >
-      <ul className="flex gap-8 text-sm font-medium">
+      <ul className="flex gap-8 text-xl font-medium">
         <li>
-          <NavbarLink href="#" active>
-            Home
-          </NavbarLink>
+           <Link to="/">Home</Link>
         </li>
         <li>
-          <NavbarLink href="#">Library</NavbarLink>
+          <Link to="/library">Library</Link>
         </li>
         <li>
-          <NavbarLink href="#">Upcoming</NavbarLink>
+          <Link to="/upcoming">Upcoming</Link>
         </li>
         <li>
-          <NavbarLink href="#">Discover</NavbarLink>
+          <Link to="/discovery">Discover</Link>
         </li>
       </ul>
     </Navbar>
