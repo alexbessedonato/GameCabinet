@@ -10,29 +10,36 @@ import { Upcoming } from "../pages/Upcoming/Upcoming";
 import { Discovery } from "../pages/Discovery/Discovery"; 
 
 // 1️⃣ Define your route tree
-const rootRoute = createRootRoute({
+export const rootRoute = createRootRoute({
   component: App,
 });
 
-const homeRoute = createRoute({
+export const homeRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
   component: Home,
+  loader: async() => {
+    // Simulate a delay
+    const res = await fetch(
+      `https://api.rawg.io/api/games?key=${import.meta.env.VITE_RAWG_API_KEY}&ordering=-metacritic&page_size=12`);
+    const data = await res.json()
+    return data.results;
+  }
 });
 
-const libraryRoute = createRoute({
+export const libraryRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/library",
   component: Library,
 });
 
-const upcomingRoute = createRoute({
+export const upcomingRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/upcoming",
   component: Upcoming,
 });
 
-const discoveryRoute = createRoute({
+export const discoveryRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/discovery",
   component: Discovery,
