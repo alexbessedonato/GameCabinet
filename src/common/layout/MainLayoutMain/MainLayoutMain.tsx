@@ -2,8 +2,8 @@ import { Outlet } from "@tanstack/react-router";
 
 export const MainLayoutMain = () => {
   return (
-    <main className="bg-gray-800 text-white text-center p-4">
-      <Outlet /> 
+    <main className="flex-1 h-full overflow-hidden text-white text-center">
+      <Outlet />
     </main>
   );
 };
