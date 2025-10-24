@@ -19,3 +19,10 @@ body {
   color: theme("colors.gray.900");
   -webkit-font-smoothing: antialiased;
 }
+
+/* Evita que Swiper cambie transform mientras haces click */
+.freeze-swiper .swiper-wrapper {
+  transition: none !important;
+  transform: none !important;
+}
+
